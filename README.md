@@ -64,7 +64,7 @@ Pour compiler et exécuter le projet, suivez ces étapes :
 
 4. **Compiler le projet** :
    ```sh
-   gcc -o password_manager src/main.c src/encryption.c src/password_generator.c src/password_manager.c -Iinclude -lssl -lcrypto
+   gcc -Werror -Wall -Wextra -o password_manager src/main.c src/password_generator.c src/password_manager.c src/encryption.c -Iinclude -lssl -lcrypto
    ```
 
 5. **Exécuter le projet** :
