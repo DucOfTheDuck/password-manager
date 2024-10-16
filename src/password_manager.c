@@ -51,17 +51,22 @@ void retrieve_password(const char *name, const char *key) {
     fclose(file);
 }
 
-void list_password_names() {
+int list_password_names() {
     FILE *file = fopen("data/passwords.txt", "r");
     if (file == NULL) {
         perror("Error opening password file");
-        return;
+        return 0;
     }
+
     char line[256];
-    printf("List of password names:\n");
+    int found = 0;
+    printf("\nList of password names:\n");
     while (fgets(line, sizeof(line), file)) {
         char *name = strtok(line, ":");
         printf("%s\n", name);
+        found = 1;
     }
+
     fclose(file);
+    return found;
 }
