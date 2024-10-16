@@ -2,7 +2,7 @@
 
 Bienvenue dans le projet **Password Manager** ! Ce projet est un gestionnaire de mots de passe simple en C qui permet de générer, enregistrer et récupérer des mots de passe de manière (plus ou moins) sécurisée.
 
-C'est mon premier vrai projet en C. J'estime qu'environ un 15ème du code a été réalisé à l'aide d'une IA (Mistral). Je commence en C, donc je fais sûrement des erreurs, mais merci de ne pas trash bêtement. Ce n'est pas un outil que je recommande fortement pour sa sécurité, mais c'est surtout sympa pour moi d'afficher ce que je code !
+C'est mon premier vrai projet en C. J'estime qu'environ 15% du code a été réalisé à l'aide d'une IA (Mistral). Je commence en C, donc je fais sûrement des erreurs, mais merci de ne pas trash bêtement. Ce n'est pas un outil que je recommande fortement pour sa sécurité, mais c'est surtout sympa pour moi d'afficher ce que je code !
 
 ## Table des matières
 
@@ -82,3 +82,9 @@ Pour compiler et exécuter le projet, suivez ces étapes :
    - Sélectionnez l'option `2` pour récupérer un mot de passe.
    - La liste des noms des mots de passe enregistrés sera affichée.
    - Entrez le nom du mot de passe que vous souhaitez récupérer.
+
+
+
+
+
+(Ce message est inclus dans les 15% de Mistral.)
