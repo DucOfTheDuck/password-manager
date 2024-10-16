@@ -5,6 +5,6 @@
 
 void save_password(const char *name, const char *password, const char *key);
 void retrieve_password(const char *name, const char *key);
-void list_password_names();
+int list_password_names();
 
 #endif
