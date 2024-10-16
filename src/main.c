@@ -4,6 +4,30 @@
 #include <time.h>
 #include "password_manager.h"
 
+
+
+int password_name_exists(const char *name) {
+    FILE *password_file = fopen("data/passwords.txt", "r");
+    if (password_file == NULL) {
+        perror("Error opening password file");
+        return 0;
+    }
+
+    char line[256];
+    while (fgets(line, sizeof(line), password_file)) {
+        char existing_name[256];
+        sscanf(line, "%255[^:]", existing_name);
+        if (strcmp(existing_name, name) == 0) {
+            fclose(password_file);
+            return 1;
+        }
+    }
+
+    fclose(password_file);
+    return 0;
+}
+
+
 int main() {
     srand(time(NULL));
 
@@ -30,12 +54,22 @@ int main() {
         generate_password(password);
         printf("\nGenerated password: %s\n", password);
         char name[256];
-        printf("Enter name for the password: ");
-        scanf("%255s", name);
-        if (strlen(name) == 0) {
-            printf("Error: Password name cannot be empty.\n");
-            return 1;
-        }
+        int name_exists;
+
+        do {
+            printf("Enter name for the password: ");
+            scanf("%255s", name);
+            if (strlen(name) == 0) {
+                printf("Error: Password name cannot be empty.\n");
+                name_exists = 1;
+            } else {
+                name_exists = password_name_exists(name);
+                if (name_exists) {
+                    printf("Error: Password name already exists. Please enter a different name.\n");
+                }
+            }
+        } while (name_exists);
+
         save_password(name, password, key);
         printf("Password saved successfully!\n");
     } else if (choice == 2) {
