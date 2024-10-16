@@ -38,9 +38,9 @@ void retrieve_password(const char *name, const char *key) {
         if (strcmp(stored_name, name) == 0) {
             char *encoded = strtok(NULL, "\n");
             size_t output_length;
-            unsigned char *decoded = base64_decode(encoded, strlen(encoded), &output_length);
+            char *decoded = base64_decode(encoded, strlen(encoded), &output_length);
             char decrypted[MAX_PASSWORD_LENGTH + 1];
-            decrypt_password((const char *)decoded, key, decrypted);
+            decrypt_password(decoded, key, decrypted);
             free(decoded);
             printf("Password: %s\n", decrypted);
             fclose(file);
